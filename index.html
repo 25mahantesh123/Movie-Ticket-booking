@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax - Premium Movie Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Movie Posters Background -->
+    <div class="movie-posters-bg">
+        <!-- Aesthetic Images -->
+        <div class="aesthetic-image image-1">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop" alt="Aesthetic">
+        </div>
+        <div class="aesthetic-image image-2">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop" alt="Aesthetic">
+        </div>
+        <div class="aesthetic-image image-3">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop" alt="Aesthetic">
+        </div>
+        <div class="aesthetic-image image-4">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop" alt="Aesthetic">
+        </div>
+        <div class="aesthetic-image image-5">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop" alt="Aesthetic">
+        </div>
+        <div class="aesthetic-image image-6">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop" alt="Aesthetic">
+        </div>
+        <div class="aesthetic-image image-7">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop" alt="Aesthetic">
+        </div>
+        <div class="aesthetic-image image-8">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop" alt="Aesthetic">
+        </div>
+        
+        <!-- Floating Particles -->
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+        <div class="particle particle-7"></div>
+        <div class="particle particle-8"></div>
+        <div class="particle particle-9"></div>
+        <div class="particle particle-10"></div>
+        
+        <div class="poster poster-1">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">Inception</div>
+            </div>
+        </div>
+        <div class="poster poster-2">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">The Dark Knight</div>
+            </div>
+        </div>
+        <div class="poster poster-3">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">Interstellar</div>
+            </div>
+        </div>
+        <div class="poster poster-4">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">Avatar</div>
+            </div>
+        </div>
+        <div class="poster poster-5">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">Titanic</div>
+            </div>
+        </div>
+        <div class="poster poster-6">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">The Matrix</div>
+            </div>
+        </div>
+        <div class="poster poster-7">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">Forrest Gump</div>
+            </div>
+        </div>
+        <div class="poster poster-8">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">Pulp Fiction</div>
+            </div>
+        </div>
+        <div class="poster poster-9">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">The Godfather</div>
+            </div>
+        </div>
+        <div class="poster poster-10">
+            <div class="poster-content">
+                <div class="poster-image"></div>
+                <div class="poster-title">Fight Club</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-film"></i>
+                <span>CineMax</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#movies" class="nav-link">Movies</a></li>
+                <li><a href="#theaters" class="nav-link">Theaters</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Experience Cinema Like Never Before</h1>
+            <p>Book your favorite movies at premium theaters with the best seats and sound quality</p>
+            <button class="cta-button" onclick="scrollToMovies()">Book Now</button>
+        </div>
+        <div class="hero-image">
+            <div class="floating-card">
+                <i class="fas fa-ticket-alt"></i>
+                <h3>Quick Booking</h3>
+                <p>Book in seconds</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section id="movies" class="movies-section">
+        <div class="container">
+            <h2>Now Showing</h2>
+            <div class="movies-grid" id="moviesGrid">
+                <!-- Movies will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Movie Section -->
+    <section class="featured-movie">
+        <div class="container">
+            <div class="featured-content">
+                <div class="featured-info">
+                    <h2>Featured Movie</h2>
+                    <h3>The Dark Knight Returns</h3>
+                    <p class="movie-description">Experience the epic conclusion to the Dark Knight trilogy. A thrilling superhero action film with intense drama and stunning visuals that will keep you on the edge of your seat.</p>
+                    <div class="movie-stats">
+                        <div class="stat">
+                            <i class="fas fa-star"></i>
+                            <span>4.8/5</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>2h 32m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-tag"></i>
+                            <span>Action, Drama</span>
+                        </div>
+                    </div>
+                    <button class="featured-book-btn" onclick="openBookingModal(1)">Book Now</button>
+                </div>
+                <div class="featured-poster">
+                    <div class="poster-container">
+                        <i class="fas fa-play-circle play-icon"></i>
+                        <div class="poster-overlay">
+                            <span>Watch Trailer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theaters Section -->
+    <section id="theaters" class="theaters-section">
+        <div class="container">
+            <h2>Our Premium Theaters</h2>
+            <div class="theaters-grid">
+                <div class="theater-card">
+                    <div class="theater-image">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>CineMax Downtown</h3>
+                    <p>Premium location with 8 screens</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Dolby Atmos Sound</li>
+                        <li><i class="fas fa-check"></i> Recliner Seats</li>
+                        <li><i class="fas fa-check"></i> 4K Projection</li>
+                    </ul>
+                </div>
+                <div class="theater-card">
+                    <div class="theater-image">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3>CineMax Mall</h3>
+                    <p>Modern multiplex with 12 screens</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> IMAX Experience</li>
+                        <li><i class="fas fa-check"></i> Premium Food Service</li>
+                        <li><i class="fas fa-check"></i> VIP Lounges</li>
+                    </ul>
+                </div>
+                <div class="theater-card">
+                    <div class="theater-image">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>CineMax Premium</h3>
+                    <p>Luxury cinema experience</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Butler Service</li>
+                        <li><i class="fas fa-check"></i> Gourmet Menu</li>
+                        <li><i class="fas fa-check"></i> Private Screening</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="booking-container">
+                <div class="movie-info">
+                    <img id="modalMoviePoster" src="" alt="Movie Poster">
+                    <div class="movie-details">
+                        <h3 id="modalMovieTitle"></h3>
+                        <p id="modalMovieGenre"></p>
+                        <p id="modalMovieDuration"></p>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Select Your Experience</h3>
+                    
+                    <!-- Booking Progress -->
+                    <div class="booking-progress">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span>Details</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span>Seats</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span>Confirm</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="theaterSelect">Theater:</label>
+                        <select id="theaterSelect">
+                            <option value="downtown">CineMax Downtown</option>
+                            <option value="mall">CineMax Mall</option>
+                            <option value="premium">CineMax Premium</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dateSelect">Date:</label>
+                        <input type="date" id="dateSelect" min="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timeSelect">Time:</label>
+                        <select id="timeSelect">
+                            <option value="10:00">10:00 AM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="19:00">7:00 PM</option>
+                            <option value="22:00">10:00 PM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="seatCount">Number of Seats:</label>
+                        <select id="seatCount">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    
+                    <div class="seat-selection">
+                        <h4>Select Your Seats</h4>
+                        <p style="color: #7f8c8d; font-size: 0.9rem; margin-bottom: 1rem;">
+                            <i class="fas fa-info-circle"></i> 
+                            Click on seats to select multiple seats. You can select up to the number of seats you chose above.
+                        </p>
+                        <div class="screen">SCREEN</div>
+                        <div class="seats-container" id="seatsContainer">
+                            <!-- Seats will be generated by JavaScript -->
+                        </div>
+                        <div class="seat-legend">
+                            <div class="legend-item">
+                                <div class="seat available"></div>
+                                <span>Available</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="seat selected"></div>
+                                <span>Selected</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="seat occupied"></div>
+                                <span>Occupied</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-summary">
+                        <h4>Booking Summary</h4>
+                        <div class="summary-item">
+                            <span>Selected Seats:</span>
+                            <span id="selectedSeats">None</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total Price:</span>
+                            <span id="totalPrice">$0</span>
+                        </div>
+                    </div>
+                    
+                    <button class="book-button" onclick="confirmBooking()">Confirm Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About CineMax</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>CineMax is the premier destination for movie enthusiasts seeking the ultimate cinematic experience. With state-of-the-art technology, premium seating, and world-class service, we bring the magic of cinema to life.</p>
+                    <p>Our commitment to excellence extends beyond the screen, offering gourmet dining options, exclusive VIP experiences, and personalized service that makes every visit memorable.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Movies Monthly</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>3</h3>
+                        <p>Premium Locations</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100K+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@cinemax.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Cinema Street, Downtown, City</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CineMax</h3>
+                    <p>Experience the magic of cinema with premium quality and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#movies">Movies</a></li>
+                        <li><a href="#theaters">Theaters</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CineMax. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Assistant Chatbot -->
+    <div class="ai-assistant" id="aiAssistant">
+        <div class="chat-header">
+            <div class="ai-info">
+                <div class="ai-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ai-details">
+                    <h4>CineMax AI Assistant</h4>
+                    <span class="status">Online</span>
+                </div>
+            </div>
+            <button class="minimize-btn" onclick="toggleChat()">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="message ai-message">
+                <div class="message-content">
+                    <i class="fas fa-robot"></i>
+                    <div class="message-text">
+                        <p>Hello! I'm your CineMax AI assistant. I can help you:</p>
+                        <ul>
+                            <li>Find movies and showtimes</li>
+                            <li>Guide you through booking</li>
+                            <li>Answer questions about theaters</li>
+                            <li>Help with seat selection</li>
+                        </ul>
+                        <p>How can I assist you today?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleUserInput(event)">
+            <button onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- AI Assistant Toggle Button -->
+    <div class="ai-toggle" id="aiToggle" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+        <span class="notification-badge" id="aiNotification">1</span>
+    </div>
+
+    <!-- Voice Assistant -->
+    <div class="voice-assistant" id="voiceAssistant">
+        <div class="voice-header">
+            <div class="voice-title">
+                <i class="fas fa-microphone"></i>
+                <span>Voice Assistant</span>
+            </div>
+            <button class="close-voice" onclick="toggleVoiceAssistant()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="voice-body" id="voiceBody">
+            <div class="voice-message ai-voice-message">
+                <div class="voice-message-content">
+                    <i class="fas fa-microphone"></i>
+                    <div>
+                        <p>Hello! I'm your voice assistant. 🎤</p>
+                        <p>Say "help" to see all voice commands!</p>
+                        <p>Try saying: "Book tickets for Inception" or "Show me movies"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="voice-controls">
+            <button id="voiceMicBtn" class="voice-mic-btn" onclick="startVoiceListening()">
+                <i class="fas fa-microphone"></i>
+                <span>Hold to Speak</span>
+            </button>
+            <div class="voice-status">
+                <i class="fas fa-circle voice-status-dot"></i>
+                <span>Ready to listen</span>
+            </div>
+            <button class="voice-settings-btn" onclick="toggleVoiceSettings()" title="Voice Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+        </div>
+        
+        <!-- Voice Settings Panel -->
+        <div class="voice-settings-panel" id="voiceSettingsPanel">
+            <h4>Voice Settings</h4>
+            <div class="setting-group">
+                <label for="voiceSpeed">Speed:</label>
+                <input type="range" id="voiceSpeed" min="0.5" max="2" step="0.1" value="0.9" onchange="updateVoiceSettings()">
+                <span id="speedValue">0.9</span>
+            </div>
+            <div class="setting-group">
+                <label for="voicePitch">Pitch:</label>
+                <input type="range" id="voicePitch" min="0.5" max="2" step="0.1" value="1" onchange="updateVoiceSettings()">
+                <span id="pitchValue">1.0</span>
+            </div>
+            <div class="setting-group">
+                <label for="voiceVolume">Volume:</label>
+                <input type="range" id="voiceVolume" min="0" max="1" step="0.1" value="0.8" onchange="updateVoiceSettings()">
+                <span id="volumeValue">0.8</span>
+            </div>
+            <div class="setting-group">
+                <label for="autoSpeak">Auto-speak responses:</label>
+                <input type="checkbox" id="autoSpeak" checked onchange="updateVoiceSettings()">
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Toggle Button -->
+    <div class="voice-toggle" onclick="toggleVoiceAssistant()">
+        <i class="fas fa-microphone"></i>
+        <span>Voice Assistant</span>
+        <div class="voice-notification-badge" id="voiceNotification">1</div>
+    </div>
+
+    <!-- Always Visible AI Voice Bot -->
+    <div class="ai-voice-bot" id="aiVoiceBot">
+        <div class="voice-bot-header">
+            <div class="voice-bot-title">
+                <i class="fas fa-robot"></i>
+                <span>🎤 AI Voice Bot</span>
+            </div>
+            <div class="voice-bot-controls">
+                <button class="voice-bot-minimize" onclick="toggleVoiceBot()" title="Minimize">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button class="voice-bot-close" onclick="closeVoiceBot()" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="voice-bot-body">
+            <div class="voice-bot-status" id="voiceBotStatus">
+                <div class="status-indicator">
+                    <i class="fas fa-circle status-dot"></i>
+                    <span>Ready to help!</span>
+                </div>
+            </div>
+            
+            <div class="voice-bot-messages" id="voiceBotMessages">
+                <div class="voice-bot-message ai-message">
+                    <div class="message-content">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <p>👋 Hello! I'm your AI voice assistant.</p>
+                            <p>Try saying:</p>
+                            <ul>
+                                <li>"Book tickets for Inception"</li>
+                                <li>"Show me movies"</li>
+                                <li>"Go to theaters section"</li>
+                                <li>"Help" for all commands</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="voice-bot-controls-main">
+                <button class="voice-bot-mic-btn" id="voiceBotMicBtn" onclick="startVoiceBotListening()">
+                    <i class="fas fa-microphone"></i>
+                    <span>Click to Speak</span>
+                </button>
+                
+                <div class="voice-bot-quick-actions">
+                    <button class="quick-action-btn" onclick="quickAction('book')">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Book</span>
+                    </button>
+                    <button class="quick-action-btn" onclick="quickAction('movies')">
+                        <i class="fas fa-film"></i>
+                        <span>Movies</span>
+                    </button>
+                    <button class="quick-action-btn" onclick="quickAction('help')">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

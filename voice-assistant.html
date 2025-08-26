@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax Voice Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Voice Assistant Toggle Button -->
+    <div class="voice-toggle-left" id="voiceToggle" onclick="toggleVoiceAssistant()">
+        <i class="fas fa-microphone"></i>
+        <span>Voice Assistant</span>
+        <div class="voice-indicator" id="voiceIndicator"></div>
+    </div>
+
+    <!-- Voice Assistant Panel -->
+    <div class="voice-assistant-left" id="voiceAssistant">
+        <div class="voice-header-left">
+            <div class="voice-title-left">
+                <i class="fas fa-robot"></i>
+                <span>CineMax Voice AI</span>
+            </div>
+            <div class="voice-header-controls">
+                <button class="voice-settings" onclick="toggleSettings()">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="close-config" onclick="toggleVoiceAssistant()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- API Configuration -->
+        <div class="api-config" id="apiConfig">
+            <div class="config-header">
+                <div>
+                    <i class="fas fa-key"></i>
+                    <span>API Configuration</span>
+                </div>
+            </div>
+            <div class="config-content">
+                <input type="text" id="apiKey" placeholder="Enter OpenAI API Key" />
+                <button onclick="saveApiKey()">Save Key</button>
+                <button onclick="testConnection()">Test Connection</button>
+            </div>
+            <div class="api-status" id="apiStatus">
+                <i class="fas fa-circle"></i>
+                <span>Ready to connect</span>
+            </div>
+        </div>
+
+        <!-- Quick Commands -->
+        <div class="quick-commands">
+            <div class="commands-header">
+                <i class="fas fa-bolt"></i>
+                <span>Quick Commands</span>
+            </div>
+            <div class="command-buttons">
+                <button class="quick-btn" onclick="quickCommand('book')">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Book Movie</span>
+                </button>
+                <button class="quick-btn" onclick="quickCommand('movies')">
+                    <i class="fas fa-film"></i>
+                    <span>Show Movies</span>
+                </button>
+                <button class="quick-btn" onclick="quickCommand('theaters')">
+                    <i class="fas fa-building"></i>
+                    <span>Theaters</span>
+                </button>
+                <button class="quick-btn" onclick="quickCommand('help')">
+                    <i class="fas fa-question"></i>
+                    <span>Help</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Voice Chat Area -->
+        <div class="voice-chat-area">
+            <div class="voice-messages" id="voiceMessages">
+                <div class="voice-message ai-message">
+                    <div class="voice-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="voice-text">
+                        <p>Hello! I'm your voice assistant. I can help you book movies, find showtimes, and answer questions about our theaters. Try saying "book tickets" or "show me movies"!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voice Controls -->
+        <div class="voice-controls-left">
+            <div class="listening-indicator" id="listeningIndicator">
+                <div class="listening-animation">
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="listening-mic">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                </div>
+                <div class="listening-text">Listening...</div>
+            </div>
+
+            <div class="voice-buttons">
+                <button class="voice-mic-btn" id="voiceMicBtn" onclick="startVoiceListening()">
+                    <i class="fas fa-microphone"></i>
+                    <span>Hold to Speak</span>
+                </button>
+                <button class="voice-stop-btn" id="voiceStopBtn" onclick="stopVoiceListening()" style="display: none;">
+                    <i class="fas fa-stop"></i>
+                    <span>Stop</span>
+                </button>
+            </div>
+
+            <div class="voice-status" id="voiceStatus">
+                <div class="voice-status-dot" id="statusDot"></div>
+                <span id="statusText">Ready to listen</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Voice Assistant JavaScript
+        let recognition;
+        let isRecording = false;
+        let isVoiceAssistantOpen = false;
+        let voiceConversationHistory = [];
+        let apiKey = localStorage.getItem('openai_api_key') || '';
+
+        // Initialize voice assistant
+        document.addEventListener('DOMContentLoaded', function() {
+            if (apiKey) {
+                document.getElementById('apiKey').value = apiKey;
+            }
+            updateApiStatus('Ready to connect');
+        });
+
+        function toggleVoiceAssistant() {
+            const voiceAssistant = document.getElementById('voiceAssistant');
+            const voiceToggle = document.getElementById('voiceToggle');
+            
+            isVoiceAssistantOpen = !isVoiceAssistantOpen;
+            
+            if (isVoiceAssistantOpen) {
+                voiceAssistant.classList.add('active');
+                voiceToggle.style.display = 'none';
+            } else {
+                voiceAssistant.classList.remove('active');
+                voiceToggle.style.display = 'flex';
+                stopVoiceListening();
+            }
+        }
+
+        function toggleSettings() {
+            const apiConfig = document.getElementById('apiConfig');
+            apiConfig.style.display = apiConfig.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function saveApiKey() {
+            const key = document.getElementById('apiKey').value;
+            if (key) {
+                localStorage.setItem('openai_api_key', key);
+                apiKey = key;
+                updateApiStatus('API key saved');
+                showNotification('API key saved successfully!', 'success');
+            }
+        }
+
+        function testConnection() {
+            if (!apiKey) {
+                updateApiStatus('Please enter API key first');
+                return;
+            }
+            
+            updateApiStatus('Testing connection...');
+            // Simulate API test
+            setTimeout(() => {
+                updateApiStatus('Connection successful');
+                showNotification('API connection successful!', 'success');
+            }, 1000);
+        }
+
+        function updateApiStatus(message) {
+            const statusElement = document.getElementById('apiStatus');
+            statusElement.innerHTML = `<i class="fas fa-circle"></i><span>${message}</span>`;
+        }
+
+        function startVoiceListening() {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                showNotification('Voice recognition not supported in this browser.', 'error');
+                return;
+            }
+            
+            if (!apiKey) {
+                showNotification('Please configure your API key first.', 'error');
+                toggleSettings();
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+            recognition.continuous = false;
+
+            const voiceMicBtn = document.getElementById('voiceMicBtn');
+            const voiceStopBtn = document.getElementById('voiceStopBtn');
+            const listeningIndicator = document.getElementById('listeningIndicator');
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+
+            voiceMicBtn.style.display = 'none';
+            voiceStopBtn.style.display = 'flex';
+            listeningIndicator.classList.add('active');
+            statusDot.classList.add('listening');
+            statusText.textContent = 'Listening...';
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                addVoiceMessage(transcript, 'user');
+                processVoiceCommand(transcript);
+            };
+            
+            recognition.onerror = function(event) {
+                console.error('Voice recognition error:', event.error);
+                updateStatus('Error: ' + event.error, false);
+                stopVoiceListening();
+            };
+            
+            recognition.onend = function() {
+                stopVoiceListening();
+            };
+            
+            recognition.start();
+            isRecording = true;
+        }
+
+        function stopVoiceListening() {
+            if (recognition && isRecording) {
+                recognition.stop();
+            }
+            
+            const voiceMicBtn = document.getElementById('voiceMicBtn');
+            const voiceStopBtn = document.getElementById('voiceStopBtn');
+            const listeningIndicator = document.getElementById('listeningIndicator');
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+
+            voiceMicBtn.style.display = 'flex';
+            voiceStopBtn.style.display = 'none';
+            listeningIndicator.classList.remove('active');
+            statusDot.classList.remove('listening');
+            statusText.textContent = 'Ready to listen';
+            isRecording = false;
+        }
+
+        function addVoiceMessage(content, sender) {
+            const voiceMessages = document.getElementById('voiceMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `voice-message ${sender}-message`;
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="voice-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="voice-text">
+                        <p>${content}</p>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="voice-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="voice-text">
+                        ${content}
+                    </div>
+                `;
+            }
+            
+            voiceMessages.appendChild(messageDiv);
+            voiceMessages.scrollTop = voiceMessages.scrollHeight;
+            
+            // Speak the response
+            if (sender === 'ai' && 'speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(content.replace(/<[^>]*>/g, ''));
+                utterance.rate = 1;
+                utterance.pitch = 1;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function processVoiceCommand(command) {
+            const lowerCommand = command.toLowerCase();
+            
+            // Simulate AI processing
+            setTimeout(() => {
+                let response = '';
+                
+                if (lowerCommand.includes('book') || lowerCommand.includes('ticket')) {
+                    response = `
+                        <p><strong>🎫 Booking Assistant Activated!</strong></p>
+                        <p>I can help you book tickets. Try these commands:</p>
+                        <ul>
+                            <li>"Book Dark Knight" - Opens booking for The Dark Knight</li>
+                            <li>"Book Inception" - Opens booking for Inception</li>
+                            <li>"Book 2 tickets" - Opens booking with 2 seats</li>
+                        </ul>
+                    `;
+                } else if (lowerCommand.includes('movie') || lowerCommand.includes('show')) {
+                    response = `
+                        <p><strong>🎬 Here are our current movies:</strong></p>
+                        <ul>
+                            <li>The Dark Knight Returns - Action, Drama (4.8/5)</li>
+                            <li>Inception - Sci-Fi, Thriller (4.7/5)</li>
+                            <li>The Shawshank Redemption - Drama (4.9/5)</li>
+                        </ul>
+                        <p>Say "book [movie name]" to start booking!</p>
+                    `;
+                } else if (lowerCommand.includes('theater') || lowerCommand.includes('location')) {
+                    response = `
+                        <p><strong>🏢 Our Premium Theaters:</strong></p>
+                        <ul>
+                            <li><strong>CineMax Downtown:</strong> 8 screens, Dolby Atmos</li>
+                            <li><strong>CineMax Mall:</strong> 12 screens, IMAX Experience</li>
+                            <li><strong>CineMax Premium:</strong> Luxury experience, Butler service</li>
+                        </ul>
+                    `;
+                } else if (lowerCommand.includes('price') || lowerCommand.includes('cost')) {
+                    response = `
+                        <p><strong>💰 Our Pricing:</strong></p>
+                        <ul>
+                            <li>Standard tickets: $12.99 per seat</li>
+                            <li>No additional fees<brainstorm_plan>
+</brainstorm_plan>
