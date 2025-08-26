@@ -81,20 +81,6 @@ Movie Website/
 └── README.md           # This file
 ```
 
-## Troubleshooting
-
-### "Sorry, there was an error connecting to ChatGPT"
-- Make sure the backend server is running (Python or Node.js)
-- Check that you're accessing the site via http://localhost:3001
-- Verify your internet connection
-
-### Python not found
-- Install Python from https://www.python.org/downloads/
-- Make sure to check "Add Python to PATH" during installation
-
-### Port 3001 already in use
-- Close other applications using port 3001
-- Or modify the port in the server files
 
 ## API Key Security
 
